@@ -61,6 +61,7 @@ npm install bcryptjs connect-flash passport passport-local express-session metho
 ```text
 git add .
 git commit -m "Install dependencies for project"
+## git push - LW Added this note
 ```
 
 ## `2` Create Database & Update Sequelize Config
@@ -92,12 +93,16 @@ git commit -m "Install dependencies for project"
 }
 ```
 
+
+
 `2` Create database `express_auth_dev`
 
 ```text
-sequelize db:create
-```
+sequelize db:create express_auth_dev
+OR (if 'Unknown argument: express_auth_dev shows up)
 
+createdb express_auth_dev
+```
 
 
 ## `3` Analyze File Structure
@@ -134,6 +139,11 @@ sequelize db:create
 ├── server.js
 ```
 
+## Globally Install Mocha or else the testing wont work - runs the checking part of if a test works or not
+```
+npm install -g mocha
+```
+
 - `config.json`: Where you need to configure your project to interact with your postgres database.
 - `controllers`: The folder where all of your controllers ( routes ) will go to control the logic of your app.
 - `models`: The folder where all the models will be stored that will interact with the database.
@@ -153,6 +163,20 @@ sequelize db:create
 
 ```text
 sequelize model:create --name user --attributes name:string,email:string,password:string
+```
+## if get error of ERROR: Unable to find migrations path (/Users/lucywang/Desktop/general-assembly/unit-2/codealongs/express_authentication/migrations). Did you run sequelize init? 
+
+## Run
+```
+sequelize init --force
+```
+
+## Then update your config file again from above & then try making the model again. 
+
+```text
+sequelize model:create --name user --attributes name:string,email:string,password:string
+```
+
 ```
 
 `2` Add **validations** for `user` model

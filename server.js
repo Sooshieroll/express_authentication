@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); // allows us to access API key if we have one
 const express = require('express');
 const layouts = require('express-ejs-layouts');
 const app = express();
@@ -23,3 +23,5 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = server;
+
+// exporting server so when we test all the files, it'll pull the server info
