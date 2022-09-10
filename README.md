@@ -520,6 +520,11 @@ git add .
 git commit -m "isLoggedIn: add middleware and import to server" 
 ```
 
+run npm test to have mocha run the test
+```
+npm test
+```
+
 ## `10` Make Login `/POST` Route
 We need now to make a `/POST` for the data that get submitted with the 
 **login** form. The **`action`** in the fom specifies the route **`/auth/login`** that needs to be made for the data to go to. The data that is submitted will be check against the database to validity before being logged into the app.
@@ -548,6 +553,16 @@ router.post('/login', passport.authenticate('local', {
 ```
 
 `2` Run **`mocha`** to see how many tests passed
+
+```
+npm test
+```
+
+In server.js add
+```
+app.use('/auth', require('./controllers/auth'));
+```
+
 
 `3` Make *commit* message
 ```text

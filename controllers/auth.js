@@ -11,6 +11,12 @@ router.get("/login", (req, res) => {
 });
 
 // Post Route Login
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/auth/login',
+  successFlash: 'Welcome back ...',
+  failureFlash: 'Either email or password is incorrect'
+}));
 
 // Post Route Sign up
 
