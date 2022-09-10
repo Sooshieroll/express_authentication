@@ -297,9 +297,15 @@ sequelize db:migrate
 
 `1` Create a `.env` file and place an evironment variable `SECRET_SESSION` with the string of your choice
 
+``` 
+touch .env
+```
+
 ```env
 SECRET_SESSION=alldayidreamaboutsoftwareengineering
 ```
+
+## If we have API Key, it would go into the .env file also
 
 `2` Add `.env` to .gitignore file
 
@@ -320,13 +326,14 @@ const SECRET_SESSION = process.env.SECRET_SESSION;
 
 Add below the current middleware is located ( before routes )
 ```js
-app.use(flash());            // flash middleware
 
 app.use(session({
   secret: SECRET_SESSION,    // What we actually will be giving the user on our site as a session cookie
   resave: false,             // Save the session even if it's modified, make this false
   saveUninitialized: true    // If we have a new session, we save it, therefore making that true
 }));
+
+app.use(flash());            // flash middleware
 
 
 ```
