@@ -367,7 +367,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const db = require('../models');
 ```
 
-`3` Create a new instance of a `LocalStrategy`
+`3` Create a new instance of a `LocalStrategy
+- Instance of a class - we made STRATEGY all caps because we know it is an important component of authenticator
+- We are pasting the below into ppConfig.js`
 
 ```js
 const STRATEGY = new LocalStrategy({
@@ -392,6 +394,7 @@ const STRATEGY = new LocalStrategy({
 ```
 
 `4` Serialize User with Passport in order to login
+  - going into ppConfig.js
 
 ```js
 // Passport "serialize" info to be able to login
