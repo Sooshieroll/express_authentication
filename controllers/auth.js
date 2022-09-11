@@ -11,6 +11,16 @@ router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
+// Get Route Log Out
+router.get('/logout', (req, res) => {
+  req.logOut(() => {
+    console.log('I am logged out')
+  }); // logs the user out of the session
+  req.flash('success', 'Logging out... See you next time!');
+  res.redirect('/');
+});
+
+
 // Post Route Login
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
@@ -53,7 +63,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Get Route Log Out
+
 
 
 

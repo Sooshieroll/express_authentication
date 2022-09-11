@@ -644,7 +644,9 @@ The purpose of this route is to log the user out of the app. The main part of th
 
 ```js
 router.get('/logout', (req, res) => {
-  req.logOut(); // logs the user out of the session
+    req.logOut(() => {
+    console.log('I am logged out') 
+    }); // logs the user out of the session
   req.flash('success', 'Logging out... See you next time!');
   res.redirect('/');
 });
