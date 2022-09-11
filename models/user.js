@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   // Check the password on Sign-In and compare it to the hashed password in the DB
-  user.prototype.validatePassword = function (typedPassword) {
+  user.prototype.validPassword = function (typedPassword) {
     let isCorrectPassword = bcrypt.compareSync(typedPassword, this.password); // check to see if password is correct (boolean)
 
     return isCorrectPassword;
